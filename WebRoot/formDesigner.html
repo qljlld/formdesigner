@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>表单设计器</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- <script type="text/javascript" src="js/seajs/sea.js"></script>
+-->
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/formdesigner.css"/>
+<link rel="stylesheet" type="text/css" href="css/jqueryui/jquery-ui-1.10.2.custom.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/formjqueryUI.css"/>
+<link rel="stylesheet" type="text/css" href="css/contextmenu/contextmenu.css"/>
+<link rel="stylesheet" type="text/css" href="css/configurecontrol.css"/>
+<script type="text/javascript" src="js/jquery/jquery-1.9.1.min.js"></script>
+<script type ="text/javascript" src="js/json2/json2.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type ="text/javascript" src="js/jqueryplugin/jquery.newcontextmenu.js"></script>
+<script type ="text/javascript" src="js/jqueryplugin/jquery.query.js"></script>
+<script type="text/javascript" src="js/jqueryui/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript" src="js/angularjs/angular-1.0.6/angular.js"></script>
+<script type="text/javascript" src="js/formdesigner/formdesigner_base.js"></script>
+<script type="text/javascript" src="js/formdesigner/config.js"></script>
+<script type="text/javascript" src="js/datePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/colorpicker/colorpicker.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/textbox/textboxplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/textbox/textboxattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/text/textplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/text/textattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/button/buttonplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/button/buttonattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/image/imageplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/image/imageattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/chart/chartplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/chart/chartattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/checkBox/checkBoxplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/chooseBox/chooseBoxplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/chooseBox/chooseBoxattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/datePicker/datePickerplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/datePicker/datePickerattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/wizard/wizardplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/upload/uploadplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/tree/treeplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/tree/treeattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/textArea/textAreaplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/textArea/textAreaattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/tabs/tabsplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/sysVariable/sysVariableplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/sysVariable/sysVariableattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/radio/radioplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/hiddenInput/hiddenInputplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/hiddenInput/hiddenInputattr.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/grid/gridplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/email/emailplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/dropDownList/dropDownListplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/div/divplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/dataTable/dataTableplugin.js"></script>
+<script type="text/javascript" src="js/formdesigner/plugins/common/choCommonAttr.js"></script>
+<!--  <script type="text/javascript" src="js/formdesigner/formdesigner.js"></script>
+-->
+<script type="text/javascript">
+        $(window).resize(function () {
+             resizeWindow();
+        });
+        function resizeWindow() {
+            var windowHeight = BASE.getWindowHeight();
+            if (windowHeight == 0) return;
+            document.getElementById("mainbody").style.height = windowHeight - $("#header").height() - 8 + "px";
+            document.getElementById("leftcontainer").style.height = windowHeight - $("#header").height() - 8 + "px";
+            document.getElementById("maincontainer").style.height = windowHeight - $("#header").height() - 8 + "px";
+            document.getElementById("attrcontainer").style.height = windowHeight - $("#header").height() - 8 + "px";
+            document.getElementById("container_designer").style.height = windowHeight - $("#header").height() - 78 + "px";
+            document.getElementById("htmlcontainer_designer").style.height = windowHeight - $("#header").height() - 78 + "px";
+            document.getElementById("jsoncontainer_designer").style.height = windowHeight - $("#header").height() - 78 + "px";
+            document.getElementById("csscontainer_designer").style.height = windowHeight - $("#header").height() - 78 + "px";
+            document.getElementById("jscontainer_designer").style.height = windowHeight - $("#header").height() - 78 + "px";
+            document.getElementById("maincontainer").style.width = document.body.offsetWidth - $("#leftcontainer").width() - $("#attrcontainer").width() - 6 + "px";
+            document.getElementById("container_designer").style.width = document.body.offsetWidth - $("#leftcontainer").width() - $("#attrcontainer").width() - 52 + "px";
+            document.getElementById("htmlcontainer_designer").style.width = document.body.offsetWidth - $("#leftcontainer").width() - $("#attrcontainer").width() - 52 + "px";
+            document.getElementById("jsoncontainer_designer").style.width = document.body.offsetWidth - $("#leftcontainer").width() - $("#attrcontainer").width() - 52 + "px";
+            document.getElementById("csscontainer_designer").style.width = document.body.offsetWidth - $("#leftcontainer").width() - $("#attrcontainer").width() - 52 + "px";
+            document.getElementById("jscontainer_designer").style.width = document.body.offsetWidth - $("#leftcontainer").width() - $("#attrcontainer").width() - 52 + "px";
+        }
+        $(document).ready(function () {
+            resizeWindow();
+            $(".toolbar").bind("click", function () {
+                var me = $(this);
+                var id = this.id;
+                switch (id) {
+                    case 'header_toolbar_save':
+                        var Name = $("#formName").val();
+                        var Title = $("#formTitle").val();
+                        var DataSource = $("#formDataSource").val();
+                        var Script = encodeURIComponent($("#jscontainer_designer").val());
+                        var Style = encodeURIComponent($("#csscontainer_designer").val());
+                        var formResult = formdesigner.saveform({ Name: Name, Title: Title, DataSource: DataSource, Script: Script, Style: Style });
+                        break;
+                    case 'header_toolbar_new':
+                        if (confirm("注意：新建表单将清除原有表单的数据")) {
+                            formdesigner.clearAllItems();
+                        }
+                        break;
+                    case 'header_toolbar_open':
+
+                        break;
+                    case 'header_toolbar_left':
+                        formdesigner.leftItems();
+                        break;
+                    case 'header_toolbar_center':
+                        formdesigner.centeredItems();
+                        break;
+                    case 'header_toolbar_right':
+                        formdesigner.rightItems();
+                        break;
+                    case 'header_toolbar_up':
+                        formdesigner.upItems();
+                        break;
+                    case 'header_toolbar_middle':
+                        formdesigner.middleItems();
+                        break;
+                    case 'header_toolbar_bottom':
+                        formdesigner.bottomItems();
+                        break;
+                    case 'header_toolbar_fullscreen':
+                        formdesigner.fullScreen();
+                        break;
+                    case 'header_toolbar_restorescreen':
+                        formdesigner.restoreScreen();
+                        break;
+                }
+            });
+            formdesigner.init({ formName: "formName", formTitle: "formTitle", formDataSource: "formDataSource" });
+        });
+
+      
+    </script>
+</head>
+<body style="position:relative">
+<form>
+<div id="header">
+    <div id="menus">
+        <ul id="header_menu">
+            <li id="header_menu_file" class="menu">文件(F)</li>
+            <li id="header_menu_edit" class="menu">编辑(E)</li>
+            <li id="header_menu_view" class="menu">视图(V)</li>
+            <li id="header_menu_data" class="menu">数据(D)</li>
+            <li id="header_menu_window" class="menu">窗口(w)</li>
+            <li id="header_menu_help" class="menu">帮助(H)</li>
+        </ul>
+    </div>
+    <div id="toolbars">
+        <ul id="header_toolbar">
+            <li id="header_toolbar_new" class="toolbar">
+                <img src="images/New.gif" alt="新建" />
+            </li>
+            <li id="header_toolbar_open" class="toolbar">
+                <img src="images/Open.png" alt="打开" />
+            </li>
+            <li id="header_toolbar_save" class="toolbar">
+                <img src="images/Save.png" alt="保存" />
+            </li>
+            <li id="header_toolbar_back" class="toolbar">
+                <img src="images/Undo.gif" alt="退后一步" />
+            </li>
+            <li id="header_toolbar_redo" class="toolbar">
+                <img src="images/Redo.gif" alt="前进" />
+            </li>
+            <li id="header_toolbar_left" class="toolbar">
+                <img src="images/position/left.png"
+                            alt="居左" />
+            </li>
+            <li id="header_toolbar_center" class="toolbar">
+                <img src="images/position/center.png"
+                            alt="水平居中" />
+            </li>
+            <li id="header_toolbar_right" class="toolbar">
+                <img src="images/position/right.png"
+                            alt="居右" />
+            </li>
+            <li id="header_toolbar_up" class="toolbar">
+                <img src="images/position/up.png" alt="居上" />
+            </li>
+            <li id="header_toolbar_bottom" class="toolbar">
+                <img src="images/position/bottom.png"
+                            alt="居下" />
+            </li>
+            <li id="header_toolbar_middle" class="toolbar">
+                <img src="images/position/middle.png"
+                            alt="垂直居中" />
+            </li>
+            <li id="header_toolbar_fullscreen" class="toolbar">
+                <img src="images/fullScreen.png"
+                            alt="全屏" />
+            </li>
+            <li id="header_toolbar_restorescreen" class="toolbar" style="display: none">
+                <img src="images/restoreScreen.png"
+                            alt="还原" />
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="mainbody">
+    <div id="leftcontainer">
+        <div id="left_title">控件列表</div>
+        <div id="left_accordion">
+            <h3>基本表单控件</h3>
+            <div>
+                <ul class="left_ul basictype">
+            </ul>
+        </div>
+        <h3>快速控件</h3>
+        <div>
+            <ul class="left_ul quicktype">
+            </ul>
+        </div>
+        <h3>容器控件</h3>
+        <div>
+            <ul class="left_ul containertype" >
+        </ul>
+    </div>
+</div>
+</div>
+<div id="maincontainer">
+<div id="tabs" class="tabs-bottom">
+    <ul>
+        <li>
+            <a id="view" href="#container_designer">视图</a>
+        </li>
+        <li>
+            <a id="html" href="#htmlcontainer_designer">Html文件</a>
+        </li>
+        <li>
+            <a id="json" href="#jsoncontainer_designer">JSON文件</a>
+        </li>
+        <li>
+            <a id="js" href="#jscontainer_designer">javascript</a>
+            <li>
+                <a id="css" href="#csscontainer_designer">CSS</a>
+            </li>
+        </ul>
+        <div class="tabs-spacer"></div>
+        <div id="container_designer"></div>
+        <textarea id="htmlcontainer_designer" style="display: none"></textarea>
+        <textarea id="jsoncontainer_designer" style="display: none"></textarea>
+        <textarea id="jscontainer_designer" style="display: none"></textarea>
+        <textarea id="csscontainer_designer" style="display: none"></textarea>
+    </div>
+</div>
+<div id="attrcontainer">
+    <div id="attr_title">属性</div>
+    <div id="attr_list">
+        <img src="images/form.png" />
+        表单属性
+    </div>
+    <div id="attr_form">
+        <table style="width: 100%">
+            <tr>
+                <td class="attr_td">模块</td>
+                <td class="attr_td">
+                    <input id="formApp" type="text" value="" class="attribute" />
+                </td>
+            </tr>
+            <tr>
+                <td class="attr_td">名称</td>
+                <td class="attr_td">
+                    <input id="formName" type="text" value="formName" class="attribute" />
+                </td>
+            </tr>
+            <tr>
+                <td class="attr_td">显示名</td>
+                <td class="attr_td">
+                    <input id="formTitle" type="text" value="1.0" class="attribute" />
+                </td>
+            </tr>
+            <tr>
+                <td class="attr_td">数据源</td>
+                <td class="attr_td">
+                    <input id="formDataSource" type="text" value="" class="attribute" />
+                </td>
+            </tr>
+            <tr>
+                <td class="attr_td">描述</td>
+                <td class="attr_td">
+                    <input id="formDescription" type="text" value="" class="attribute" />
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+</div>
+</form>
+</body>
+</html>

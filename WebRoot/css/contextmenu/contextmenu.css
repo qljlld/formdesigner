@@ -1,0 +1,204 @@
+/* Generic context menu styles */
+.contextMenu
+{
+    position: absolute;
+    width: 150px;
+    z-index: 99999;
+    border: solid 1px #CCC;
+    background: #EEE;
+    padding: 0px;
+    margin: 0px;
+    display: none;
+    font-size: 11px;
+}
+
+    .contextMenu LI
+    {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .contextMenu A
+    {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        line-height: 20px;
+        height: 20px;
+        background-position: 6px center;
+        background-repeat: no-repeat;
+        outline: none;
+        padding: 1px 5px;
+        padding-left: 28px;
+    }
+
+    .contextMenu LI.hover A
+    {
+        color: #FFF;
+        background-color: #3399FF;
+    }
+
+    .contextMenu LI.disabled A
+    {
+        color: #AAA;
+        cursor: default;
+    }
+
+    .contextMenu LI.hover.disabled A
+    {
+        background-color: transparent;
+    }
+
+    .contextMenu LI.separator
+    {
+        border-top: solid 1px #CCC;
+    }
+
+    /*
+	Adding Icons
+	
+	You can add icons to the context menu by adding
+	classes to the respective LI element(s)
+*/
+
+    .contextMenu LI.edit A
+    {
+        background-image: url(../../images/contextmenu/page_white_edit.png);
+    }
+
+    .contextMenu LI.cut A
+    {
+        background-image: url(../../images/contextmenu/cut.png);
+    }
+
+    .contextMenu LI.copy A
+    {
+        background-image: url(../../images/contextmenu/page_white_copy.png);
+    }
+
+    .contextMenu LI.paste A
+    {
+        background-image: url(../../images/contextmenu/page_white_paste.png);
+    }
+
+    .contextMenu LI.delete A
+    {
+        background-image: url(../../images/contextmenu/page_white_delete.png);
+    }
+
+    .contextMenu LI.AddFolder A
+    {
+        background-image: url(../../images/contextmenu/AddFolder.png);
+    }
+
+    .contextMenu LI.EditFolder A
+    {
+        background-image: url(../../images/contextmenu/EditFolder.png);
+    }
+
+    .contextMenu LI.DeleteFolder A
+    {
+        background-image: url(../../images/contextmenu/DeleteFolder.png);
+    }
+
+
+    .contextMenu LI.AddModel A
+    {
+        background-image: url(../../images/contextmenu/AddModel.png);
+    }
+
+    .contextMenu LI.EditModel A
+    {
+        background-image: url(../../images/contextmenu/EditModel.png);
+    }
+
+    .contextMenu LI.DeleteModel A
+    {
+        background-image: url(../../images/contextmenu/DeleteModel.png);
+    }
+
+    .contextMenu LI.AddReport A
+    {
+        background-image: url(../../images/contextmenu/AddReport.png);
+    }
+
+    .contextMenu LI.EditReport A
+    {
+        background-image: url(../../images/contextmenu/EditReport.png);
+    }
+
+    .contextMenu LI.DeleteReport A
+    {
+        background-image: url(../../images/contextmenu/DeleteReport.png);
+    }
+
+    .contextMenu LI.ExecuteReport A
+    {
+        background-image: url(../../images/contextmenu/ExecuteReport.png);
+    }
+    .contextMenu LI.edit A
+    {
+        background-image: url(../../images/contextmenu/page_white_edit.png);
+    }
+
+    .contextMenu LI.cutcontrol A
+    {
+        background-image: url(../../images/contextmenu/cut.png);
+    }
+
+    .contextMenu LI.copycontrol A
+    {
+        background-image: url(../../images/contextmenu/page_white_copy.png);
+    }
+
+    .contextMenu LI.pastecontrol A
+    {
+        background-image: url(../../images/contextmenu/page_white_paste.png);
+    }
+
+    .contextMenu LI.delcontrol A
+    {
+        background-image: url(../../images/contextmenu/page_white_delete.png);
+    }
+
+    .contextMenu LI.leftcontrol A
+    {
+        background-image: url(../../images/position/left.png);
+    }
+
+    .contextMenu LI.centercontrol A
+    {
+        background-image: url(../../images/position/center.png);
+    }
+
+    .contextMenu LI.rightcontrol A
+    {
+        background-image: url(../../images/position/right.png);
+    }
+       .contextMenu LI.upcontrol A
+    {
+        background-image: url(../../images/position/up.png);
+    }
+
+    .contextMenu LI.middlecontrol A
+    {
+        background-image: url(../../images/position/middle.png);
+    }
+
+    .contextMenu LI.bottomcontrol A
+    {
+        background-image: url(../../images/position/bottom.png);
+    }
+       .contextMenu LI.attrcontrol A
+    {
+        background-image: url(../../images/contextmenu/attr.png);
+    }
+          .contextMenu LI.formcontrol A
+    {
+        background-image: url(../../images/contextmenu/form.png);
+    }
+/*.contextMenu LI.editvm A
+    {
+        background-image: url(images/edit.png);
+    }*/
