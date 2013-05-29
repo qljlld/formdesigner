@@ -185,7 +185,7 @@
                         if (formdesigner.dialogs && formdesigner.dialogs.items[controlType]) {
                             var dialog = formdesigner.dialogs.items[controlType];
                             BASE.openDialog(dialog.dialogContent);
-                            dialog.dialogScript.call(this, controlID,controlType);
+                            dialog.dialogScript.call(this, controlID, controlType);
                         } else {
                             var url = BASE.getBasePath();
                             BASE.openDialog({
@@ -665,7 +665,20 @@
                     me.find("textarea").css("height", options.Height - 6 + "px");
                 }
                 /*自定义样式*/
-                if (options.CustomStyle && options.CustomStyle.split(";").length > 0) {
+            /*    if (options.CustomStyle) {
+                    var load_css = (function() {
+                        var sStyle = document.createElement("style");
+                        sStyle.setAttribute("type", "text/css");
+                        if (sStyle.styleSheet) { //ie
+                            sStyle.styleSheet.cssText = options.CustomStyle;
+                        } else {
+                            var csstext = document.createTextNode(options.CustomStyle);
+                            sStyle.appendChild(csstext);
+                        }
+                        document.getElementsByTagName('head')[0].appendChild(sStyle);
+                    })();
+                }*/
+                  if (options.CustomStyle && options.CustomStyle.split(";").length > 0) {
                     for (var i = 0; i < options.CustomStyle.split(";").length; i++) {
                         var cssText = options.CustomStyle.split(";")[i];
                         var cssProperty = cssText.split(":")[0];
@@ -681,7 +694,7 @@
                     if (formdesigner.dialogs && formdesigner.dialogs.items[options.ControlType]) {
                         var dialog = formdesigner.dialogs.items[options.ControlType];
                         BASE.openDialog(dialog.dialogContent);
-                        dialog.dialogScript.call(this, options.Name,options.ControlType);
+                        dialog.dialogScript.call(this, options.Name, options.ControlType);
 
                     } else {
                         var url = BASE.getBasePath();
