@@ -1,4 +1,4 @@
-function operateList($scope) {
+function commonoperateList($scope) {
     var controlType = $(".commonangular").attr("controlType");
     var controlID = $(".commonangular").attr("controlID");
     if(controlType == "DropDownList" || controlType == "Radio") {
@@ -204,7 +204,7 @@ formdesigner.dialogs.add(['CheckBox', 'Radio', 'DropDownList'], (function() {
         }
         $(".commonangular").attr("controlID", controlID);
         $(".commonangular").attr("controlType", controlType);
-        $(".commonangular").attr("ng-controller", "operateList");
+        $(".commonangular").attr("ng-controller", "commonoperateList");
         angular.bootstrap($(".commonangular"));
         $("#configure_tabs").tabs();
         $("#customcontent").click(function() {
